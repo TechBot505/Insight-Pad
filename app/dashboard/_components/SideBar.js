@@ -3,13 +3,16 @@ import { Button } from '@/components/ui/button';
 import { FileText, Layout, Rocket } from 'lucide-react';
 import Image from 'next/image';
 import React from 'react';
+import UploadDialog from './UploadDialog';
 
 function SideBar() {
   return (
     <div className='shadow-md h-screen p-6'>
         <Image src={'/logo.svg'} width={170} height={120} alt='logo'/>
         <div className='mt-10'>
-            <Button className='w-full'><FileText/> Upload PDF</Button>
+            <UploadDialog>
+                <Button className='w-full'><FileText/> Upload PDF</Button>
+            </UploadDialog>
             <div className='flex gap-2 items-center mt-4 p-3 rounded-lg cursor-pointer hover:bg-slate-100'>
                 <Layout size={24} />
                 <h2>Workspace</h2>
