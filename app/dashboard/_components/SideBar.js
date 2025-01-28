@@ -20,7 +20,7 @@ function SideBar() {
             </div>
         </div>
         <div className='absolute bottom-24 w-[80%] bg-gray-100 p-3 rounded-md'>
-            <Progress value={50} />
+            <Progress value={50} className='mt-1' />
             <p className='text-sm mt-1'>2 out of 5 PDFs Uploaded</p>
             <p className='mt-2 text-gray-400 text-sm'>Upgrade to Upload more PDFs</p>
         </div>
