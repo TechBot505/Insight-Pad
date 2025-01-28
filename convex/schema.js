@@ -6,5 +6,11 @@ export default defineSchema({
         userName: v.string(),
         email: v.string(),
         imageUrl: v.string(),
+    }),
+    files:defineTable({
+        fileId: v.string(),
+        fileName: v.string(),
+        storageId: v.string(),
+        createdBy: v.string()
     })
 })
