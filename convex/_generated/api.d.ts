@@ -13,6 +13,8 @@ import type {
   FilterApi,
   FunctionReference,
 } from "convex/server";
+import type * as langchain_db from "../langchain/db.js";
+import type * as myActions from "../myActions.js";
 import type * as storage from "../storage.js";
 import type * as user from "../user.js";
 
@@ -25,6 +27,8 @@ import type * as user from "../user.js";
  * ```
  */
 declare const fullApi: ApiFromModules<{
+  "langchain/db": typeof langchain_db;
+  myActions: typeof myActions;
   storage: typeof storage;
   user: typeof user;
 }>;

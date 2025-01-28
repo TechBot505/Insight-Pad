@@ -2,10 +2,13 @@ import { NextResponse } from "next/server";
 import { WebPDFLoader } from "@langchain/community/document_loaders/web/pdf";
 import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
 
-const pdfUrl = "https://beloved-loris-162.convex.cloud/api/storage/8eb923ec-d71c-4f0f-ba5e-8cf2fac834b9";
-
 export async function GET(req) {
-    
+
+    const reqUrl = req.url;
+    const { searchParams } = new URL(reqUrl);
+    const pdfUrl = searchParams.get('pdfUrl');
+    console.log(pdfUrl);
+
     // 1. Load the PDF file
     const response = await fetch(pdfUrl);
     const data = await response.blob();
