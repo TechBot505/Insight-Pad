@@ -22,6 +22,7 @@ function UploadDialog({ children }) {
 
     const generateUploadUrl = useMutation(api.storage.generateUploadUrl);
     const uploadFileToStorage = useMutation(api.storage.uploadFileToStorage);
+    const getUploadedFileUrl = useMutation(api.storage.getUploadedFileUrl);
     const { user } = useUser();
     const [file, setFile] = useState();
     const [fileName, setFileName] = useState('');
@@ -42,10 +43,12 @@ function UploadDialog({ children }) {
         const { storageId } = await result.json();
         console.log("Storage ID", storageId);
         const fileId = uuid4();
+        const fileUrl = await getUploadedFileUrl({ storageId });
         const response = await uploadFileToStorage({
             fileId: fileId,
             fileName: fileName??'Untitled',
             storageId: storageId,
+            fileUrl: fileUrl,
             createdBy: user?.primaryEmailAddress?.emailAddress,
         })
         console.log(response);

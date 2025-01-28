@@ -10,6 +10,7 @@ export const uploadFileToStorage = mutation({
         fileId: v.string(),
         fileName: v.string(),
         storageId: v.string(),
+        fileUrl: v.string(),
         createdBy: v.string()
     },
     handler: async (ctx, args) => {
@@ -17,8 +18,19 @@ export const uploadFileToStorage = mutation({
             fileId: args.fileId,
             fileName: args.fileName,
             storageId: args.storageId,
+            fileUrl: args.fileUrl,
             createdBy: args.createdBy
         });
         return { success: true, message: "File uploaded successfully" };
+    }
+})
+
+export const getUploadedFileUrl = mutation({
+    args: {
+        storageId: v.string()
+    },
+    handler: async (ctx, args) => {
+        const url = await ctx.storage.getUrl(args.storageId);
+        return url;
     }
 })
