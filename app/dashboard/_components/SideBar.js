@@ -3,6 +3,7 @@ import { Layout, Rocket } from 'lucide-react';
 import Image from 'next/image';
 import React from 'react';
 import UploadDialog from './UploadDialog';
+import { Button } from "@/components/ui/button";
 
 function SideBar() {
   return (

@@ -19,7 +19,7 @@ import uuid4 from "uuid4";
 import { useUser } from "@clerk/nextjs";
 import axios from "axios";
 
-function UploadDialog() {
+function UploadDialog({children}) {
 
     const generateUploadUrl = useMutation(api.storage.generateUploadUrl);
     const uploadFileToStorage = useMutation(api.storage.uploadFileToStorage);
